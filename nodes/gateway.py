@@ -48,6 +48,8 @@ class Controller(udi_interface.Node):
 
         self.setDriver('TPW', round(i_demand, 4), True, False)
         self.setDriver('GV1', round(t_net, 4), True, False)
+        self.setDriver('GV2', round(t_delivered, 4), True, False)
+        self.setDriver('GV3', round(t_received, 4), True, False)
 
 
     # Process changes to customParameters
@@ -122,8 +124,10 @@ class Controller(udi_interface.Node):
 
     drivers = [
             {'driver': 'ST', 'value': 1, 'uom': 2},    # node server status
-            {'driver': 'TPW', 'value': 0, 'uom': 33},  # power
+            {'driver': 'TPW', 'value': 0, 'uom': 102},  # power
             {'driver': 'GV1', 'value': 0, 'uom': 33},  # power
+            {'driver': 'GV2', 'value': 0, 'uom': 33},  # power
+            {'driver': 'GV3', 'value': 0, 'uom': 33},  # power
             ]
 
     
