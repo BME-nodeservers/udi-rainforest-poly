@@ -6,7 +6,7 @@
     "install": "install.sh",
     "description": "Smart Home Energy Montior",
     "notice": "",
-    "shortPoll": "1",
+    "shortPoll": "15",
     "longPoll": "60",
     "profile_version": "1.0.0",
     "customParams": {

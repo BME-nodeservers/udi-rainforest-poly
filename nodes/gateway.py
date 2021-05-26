@@ -39,17 +39,21 @@ class Controller(udi_interface.Node):
         if not self.configured:
             return
 
-        i_demand = self.eagle.instantanous_demand()
-        t_delivered = self.eagle.summation_delivered()
-        t_received = self.eagle.summation_received()
-        t_net = self.eagle.summation_total()
+        try:
+            self.eagle.update()
+            i_demand = self.eagle.instantanous_demand()
+            t_delivered = self.eagle.summation_delivered()
+            t_received = self.eagle.summation_received()
+            t_net = self.eagle.summation_total()
 
-        LOGGER.info('data: {} {} {} {}'.format(i_demand, t_delivered, t_received, t_net))
+            LOGGER.info('data: {} {} {} {}'.format(i_demand, t_delivered, t_received, t_net))
 
-        self.setDriver('TPW', round(i_demand, 4), True, False)
-        self.setDriver('GV1', round(t_net, 4), True, False)
-        self.setDriver('GV2', round(t_delivered, 4), True, False)
-        self.setDriver('GV3', round(t_received, 4), True, False)
+            self.setDriver('TPW', round(i_demand, 4), True, False)
+            self.setDriver('GV1', round(t_net, 4), True, False)
+            self.setDriver('GV2', round(t_delivered, 4), True, False)
+            self.setDriver('GV3', round(t_received, 4), True, False)
+        except Exception as e:
+            LOGGER.error('Update failed: {}'.format(e))
 
 
     # Process changes to customParameters
