@@ -7,7 +7,7 @@ Copyright (C) 2021 Robert Paauwe
 import udi_interface
 import sys
 import time
-import eagle200-reader
+import eagle200_reader
 
 LOGGER = udi_interface.LOGGER
 Custom = udi_interface.Custom
@@ -44,10 +44,10 @@ class Controller(udi_interface.Node):
         t_received = self.eagle.summation_received()
         t_net = self.eagle.summation_total()
 
-        LOGGER.info('data: {} {} {} {}'.format(i_demand, t_delviered, t_received, t_net))
+        LOGGER.info('data: {} {} {} {}'.format(i_demand, t_delivered, t_received, t_net))
 
-        self.setDriver('TPW', i_demand, True, False)
-        self.setDriver('GV1', t_net, True, True)
+        self.setDriver('TPW', round(i_demand, 4), True, False)
+        self.setDriver('GV1', round(t_net, 4), True, False)
 
 
     # Process changes to customParameters
@@ -88,7 +88,7 @@ class Controller(udi_interface.Node):
             self.Notices['cfg_p'] = 'Please enter a valid Install Code'
 
         if self.configured:
-            self.eagle = eagle200-reader.EagleReader(
+            self.eagle = eagle200_reader.EagleReader(
                     self.Parameters['IP Address'],
                     self.Parameters['Cloud ID'],
                     self.Parameters['Install Code'])
@@ -105,7 +105,6 @@ class Controller(udi_interface.Node):
 
         if self.configured:
             self.query()
-            self.query_day()
 
     def poll(self, poll):
         if poll == 'shortPoll':
