@@ -1,0 +1,2 @@
+udi_interface >= 3.0.0
+eagle200-reader >= 0.2.4

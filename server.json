@@ -1,0 +1,40 @@
+{
+    "name": "Eagle 200",
+    "docs": "https://github.com/BME-nodeservers/udi-rainforest-poly",
+    "type": "python3",
+    "executable": "eagle.py",
+    "install": "install.sh",
+    "description": "Smart Home Energy Montior",
+    "notice": "",
+    "shortPoll": "1",
+    "longPoll": "60",
+    "profile_version": "1.0.0",
+    "customParams": {
+	    "IP Address" : "",
+	    "Cloud ID" : "",
+	    "Install Code" : ""
+    },
+    "credits": [ {
+	"title": "Rainforest Eagle 200: a node server for energy meter monitoring",
+    	"author": "Bob Paauwe",
+    	"version": "1.0.0",
+    	"date": "May 26, 2021",
+    	"source": "https://github.com/BME-nodeservers/udi-rainforest-poly",
+	"license": "https://github.com/BME-nodeservers/udi-rainforest-poly/LICENSE"
+	} ],
+    "store": {
+		"developer": "bpaauwe@bobsplace.com",
+		"purchaseOptions": [
+			{
+				"isTrial": true,
+				"recurring": 30,
+				"recurringPeriod": "day",
+				"price": 0
+			},
+			{
+				"isPerpetual": true,
+				"price": 5.00
+			}
+		]
+	}
+}
