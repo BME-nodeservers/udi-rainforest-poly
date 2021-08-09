@@ -10,4 +10,4 @@
 	<editor id="kws">
 		<range uom="102" min="-100000" max="100000" prec="4" />
 	</editor>
-<editors>
+</editors>
