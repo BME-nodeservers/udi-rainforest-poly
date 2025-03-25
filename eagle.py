@@ -14,7 +14,7 @@ LOGGER = udi_interface.LOGGER
 if __name__ == "__main__":
     try:
         polyglot = udi_interface.Interface([gateway.Controller])
-        polyglot.start()
+        polyglot.start('1.0.1')
         control = gateway.Controller(polyglot, "controller", "controller", "Eagle 200")
         polyglot.runForever()
     except (KeyboardInterrupt, SystemExit):
